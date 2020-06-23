@@ -59,6 +59,8 @@ module ATDISPlanningAlertsFeed
       raise e
     end
 
+    logger.info(page.pagination)
+
     unless page.pagination&.respond_to?(:current)
       logger.warn("No/invalid pagination, assuming no records/aborting")
       return []
