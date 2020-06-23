@@ -11,7 +11,8 @@ module ATDISPlanningAlertsFeed
     feed = ATDIS::Feed.new(url, timezone)
     logger = options[:logger]
     logger ||= Logger.new(STDOUT)
-
+    logger.info("Feed #{url}")
+    
     options[:lodgement_date_start] = (options[:lodgement_date_start] || Date.today - 30)
     options[:lodgement_date_end] = (options[:lodgement_date_end] || Date.today)
 
